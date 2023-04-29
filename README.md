@@ -38,7 +38,7 @@ OpenAPI.command = async (content) => { // custom helper command to easily comman
 
 ## Things of note
 
-- GPT word limit is said to be around 500 words/4000~ characters. The prefix/init to establish mutual understanding is around 120 words/891 characters.
+- GPT word limit is said to be around **500 words/4000~ characters**. The prefix/init to establish mutual understanding is around **120 words/891 characters**.
 - If GPT stops output due to overly complex input, we have no way of stopping it
 
 ## Tech used currently
