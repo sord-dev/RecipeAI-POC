@@ -214,7 +214,7 @@ Retrieves a list of recommended recipes based on the ingredients in the user's p
 
 - `GET /api/users/me`
 
-Gets currently logged in users info 
+Gets currently logged in users info
 
 **Response:**
 
