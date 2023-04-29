@@ -10,13 +10,31 @@ Us and ChatGPT agree on a mutual way of thinking about foods and recipes in json
 
 In [prefix.txt](./utils/gpttools/prefix.txt) you'll see the prompt in which we do this. This file is loaded into a custom method used in [models/ChatGPT](./models/ChatGPT.js). 
 
-Custom "command" OpenAI method:
+***utils/gpttools/index.js:***
 
-![image](https://user-images.githubusercontent.com/75338985/235327116-ac7f09c6-eb5b-4f89-8d98-82f5c29397bc.png)
+```js
+OpenAPI.command = async (content) => { // custom helper command to easily command gpt with our dataformat and json structure
+    let cmd = { role: "user", content: prefix + ' ' + content };
+    const res = await OpenAPI.createChatCompletion({ model: 'gpt-3.5-turbo', messages: [cmd] });
 
-Generate random recipe using the ChatGPT model:
+    return res.data;
+}
+```
 
-![image](https://user-images.githubusercontent.com/75338985/235327175-61904b59-b56a-46db-8677-aae0006b974d.png)
+***models/ChatGPT.js:***
+
+```js
+    // Generate random recipe using the ChatGPT model:
+    generateRecipe: async () => {
+        try {
+            const res = await OpenAPI.command(`DF:create a recipe with values`);
+
+            return parseGPT(res.choices[0].message.content);
+        } catch (error) {
+         throw Error(error)
+        }
+    }
+```
 
 ## Things of note
 
