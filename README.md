@@ -82,7 +82,7 @@ Retrieves a random recipe curated by ChatGPT
 1. To get the sample code from GitHub, use the  `git clone`  command to get a local copy of the remote repository. To clone the sample code, run the following command:
 
     ```bash
-    git clone [repo name]
+    git clone https://github.com/sord-dev/RecipeAI-POC.git
     ```
 
 2. Create a .env file in the root directory of your project, with the following key value pairs:
@@ -97,7 +97,7 @@ Retrieves a random recipe curated by ChatGPT
 3. Install dependencies
 
     ``` bash
-    cd [directory name]
+    cd RecipeAI-POC
     npm i
     ```
 
