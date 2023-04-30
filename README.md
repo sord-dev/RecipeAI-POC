@@ -12,6 +12,7 @@ Most interaction with the OpenAI API takes place in the [/utils/gpttools](./util
   - [Things of note](#things-of-note)
   - [Tech used currently](#tech-used-currently)
   - [Recipe Endpoints](#recipe-endpoints)
+    - [Get recommended recipes](#get-recommended-recipes)
     - [Get Random Recipe](#get-random-recipe)
     - [Get Random Regonal Recipe](#get-random-regonal-recipe)
   - [Cloning this repo](#cloning-this-repo)
@@ -77,6 +78,127 @@ From request to recipe generation:
 - Jest, Supertest (Testing Tooling + Endpoints)
 
 ## Recipe Endpoints
+
+### Get recommended recipes
+
+Recommended based on likes and dislikes
+
+- `PATCH /api/recipes/recommended`
+
+Recieve two random recipe curated by ChatGPT based on your pantry and dislikes
+
+**Request:**
+
+```json
+    { "userId": 1 }
+```
+
+**Response:**
+
+```json
+{
+    "pantry": [
+        "rice",
+        "bell peppers",
+        "onions",
+        "peas",
+        "lettuce"
+    ],
+    "recommended": [
+        {
+            "recipe_name": "rice and bell pepper stir fry",
+            "ingredients": [
+                {
+                    "food_name": "rice",
+                    "nutritional_value": {
+                        "calories": 130,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 2.99
+                },
+                {
+                    "food_name": "bell pepper",
+                    "nutritional_value": {
+                        "calories": 30,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 1.5
+                },
+                {
+                    "food_name": "onion",
+                    "nutritional_value": {
+                        "calories": 40,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 0.99
+                },
+                {
+                    "food_name": "peas",
+                    "nutritional_value": {
+                        "calories": 67,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 1.99
+                },
+                {
+                    "food_name": "lettuce",
+                    "nutritional_value": {
+                        "calories": 5,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 1
+                }
+            ]
+        },
+        {
+            "recipe_name": "bell pepper and onion omelette",
+            "ingredients": [
+                {
+                    "food_name": "eggs",
+                    "nutritional_value": {
+                        "calories": 155,
+                        "vegetarian": true,
+                        "vegan": false
+                    },
+                    "avr_price": 3.5
+                },
+                {
+                    "food_name": "bell pepper",
+                    "nutritional_value": {
+                        "calories": 30,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 1.5
+                },
+                {
+                    "food_name": "onion",
+                    "nutritional_value": {
+                        "calories": 40,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 0.99
+                },
+                {
+                    "food_name": "lettuce",
+                    "nutritional_value": {
+                        "calories": 5,
+                        "vegetarian": true,
+                        "vegan": true
+                    },
+                    "avr_price": 1
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Get Random Recipe
 
@@ -244,6 +366,7 @@ Retrieves a random recipe curated by ChatGPT
     ]
 }
 ```
+
 
 ## Cloning this repo
 

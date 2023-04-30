@@ -1,4 +1,4 @@
-const users = [{ id: 1, username: 'stef', password: 'test', pantry: [], dislikes: [] }]
+const users = [{ id: 1, username: 'stef', password: 'test', pantry: ["rice", "bell peppers", "onions", "peas", "lettuce"], dislikes: ["liver"] }]
 
 class User {
     constructor({ id, username, password, pantry = [], dislikes = [] }) {
@@ -23,6 +23,14 @@ class User {
         if (!user.length) throw new Error('User not found.');
 
         return new User({ ...user[0] });
+    }
+
+    statePreferences() {
+        let pantryString = this.pantry.map(l => l.toString()).join(' ') // convert the pantry array into a string
+        let dislikedString = this.dislikes.map(d => d.toString()).join(' ') // convert the disliked array into a string
+        let prompt = `Excluding ${dislikedString} as i dont like them, I have ${pantryString}`
+
+        return prompt
     }
 
     updatePantry(type, foodName) {
