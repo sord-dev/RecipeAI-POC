@@ -74,7 +74,7 @@ From request to recipe generation:
 
 - Express Draft (to create the express server quickly and efficiently)
 - OpenAI API (AI curated recipes)
-- Jest (Testing Tooling + Endpoints)
+- Jest, Supertest (Testing Tooling + Endpoints)
 
 ## Recipe Endpoints
 
