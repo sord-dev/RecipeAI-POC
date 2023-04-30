@@ -117,6 +117,112 @@ Retrieves a random recipe curated by ChatGPT
 }
 ```
 
+### Get Random Regonal Recipe
+
+- `GET /api/recipes/random/:regon`
+
+Retrieves a random recipe curated by ChatGPT
+
+**Response:**
+
+```json
+{
+"recipe_name": "butter chicken curry",
+    "ingredients": [
+        {
+        "food_name": "chicken",
+        "nutritional_value": {
+            "calories": 239,
+            "vegetarian": false,
+            "vegan": false
+            },
+        "avr_price": 6.99
+    },
+    {
+        "food_name": "ghee",
+        "nutritional_value": {
+            "calories": 112,
+            "vegetarian": true,
+            "vegan": false
+            },
+        "avr_price": 4.99
+    },
+    {
+        "food_name": "onion",
+        "nutritional_value": {
+            "calories": 64,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 1.99
+    },
+    {
+    "food_name": "tomato",
+        "nutritional_value": {
+            "calories": 22,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 2.99
+    },
+    {
+        "food_name": "garlic",
+        "nutritional_value": {
+            "calories": 5,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 0.99
+    },
+    {
+    "food_name": "ginger",
+        "nutritional_value": {
+            "calories": 13,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 1.49
+    },
+    {
+    "food_name": "turmeric",
+        "nutritional_value": {
+            "calories": 0,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 4.99
+    },
+    {
+    "food_name": "cayenne pepper",
+        "nutritional_value": {
+            "calories": 17,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 3.49
+    },
+    {
+    "food_name": "heavy cream",
+        "nutritional_value": {
+            "calories": 51,
+            "vegetarian": true,
+            "vegan": false
+            },
+        "avr_price": 2.99
+    },
+    {
+    "food_name": "basmati rice",
+        "nutritional_value": {
+            "calories": 150,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 4.99
+    }
+    ]
+}
+```
+
 ## Cloning this repo
 
 1. To get the sample code from GitHub, use the  `git clone`  command to get a local copy of the remote repository. To clone the sample code, run the following command:
