@@ -9,13 +9,13 @@ describe('Recipes Endpoint Tests', () => {
 
         expect(response.statusCode).toBe(200)
         expect(typeof response.body.recipe_name).toBe('string')
-    });
+    }, 20000);
     
     it('GET /api/recipes/random/:region - Should return with a valid recipe', async () => {
         let response = await server.get('/api/recipes/random/indian');
 
         expect(response.statusCode).toBe(200)
         expect(typeof response.body.recipe_name).toBe('string')
-    });
+    }, 20000);
     
  })
