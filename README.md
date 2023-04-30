@@ -53,6 +53,12 @@ Can only really generate a few recipes or foods at a time, meaning that generati
 - Possible fix would be to store a pregenorated amount of recipes and only generate the users recommended recipes at a time.
 - User recommended recipes may need to be generated one by one on demand as well due to the same issue.
 
+Large latency time from request to recipe generation.
+
+![image](https://user-images.githubusercontent.com/75338985/235352560-f986acf0-baba-408d-90d9-20333b0438f5.png)
+
+- Again the answer lies with how we utilise generating these recipes, generating and storing them beforehand then serving them sounds like a much more time efficient process.
+
 ## Things of note
 
 - GPT word limit is said to be around **500 words/4000~ characters**. The prefix/init to establish mutual understanding is around **120 words/891 characters**.
