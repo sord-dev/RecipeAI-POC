@@ -30,5 +30,6 @@ jobs:
       run: |
         echo "export PORT=123" >> $GITHUB_ENV
         echo "export OPEN_AI_API_KEY=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" >> $GITHUB_ENV
+    - run: npm i
     - run: npm run build --if-present
     - run: npm test
