@@ -20,7 +20,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         
     env:
-      OPEN_AI_API_KEY: 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
+      OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
 
     steps:
     - uses: actions/checkout@v3
