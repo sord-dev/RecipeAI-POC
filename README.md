@@ -36,6 +36,13 @@ OpenAPI.command = async (content) => { // custom helper command to easily comman
     }
 ```
 
+## Limitations
+
+Can only really generate a few recipes or foods at a time, meaning that generating large datasets will struggle.
+
+- Possible fix would be to store a pregenorated amount of recipes and only generate the users recommended recipes at a time.
+- User recommended recipes may need to be generated one by one on demand as well due to the same issue.
+
 ## Things of note
 
 - GPT word limit is said to be around **500 words/4000~ characters**. The prefix/init to establish mutual understanding is around **120 words/891 characters**.
@@ -106,6 +113,112 @@ Retrieves a random recipe curated by ChatGPT
                 },
             "avr_price": 2
         }
+    ]
+}
+```
+
+### Get Random Regonal Recipe
+
+- `GET /api/recipes/random/:regon`
+
+Retrieves a random recipe curated by ChatGPT
+
+**Response:**
+
+```json
+{
+"recipe_name": "butter chicken curry",
+    "ingredients": [
+        {
+        "food_name": "chicken",
+        "nutritional_value": {
+            "calories": 239,
+            "vegetarian": false,
+            "vegan": false
+            },
+        "avr_price": 6.99
+    },
+    {
+        "food_name": "ghee",
+        "nutritional_value": {
+            "calories": 112,
+            "vegetarian": true,
+            "vegan": false
+            },
+        "avr_price": 4.99
+    },
+    {
+        "food_name": "onion",
+        "nutritional_value": {
+            "calories": 64,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 1.99
+    },
+    {
+    "food_name": "tomato",
+        "nutritional_value": {
+            "calories": 22,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 2.99
+    },
+    {
+        "food_name": "garlic",
+        "nutritional_value": {
+            "calories": 5,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 0.99
+    },
+    {
+    "food_name": "ginger",
+        "nutritional_value": {
+            "calories": 13,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 1.49
+    },
+    {
+    "food_name": "turmeric",
+        "nutritional_value": {
+            "calories": 0,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 4.99
+    },
+    {
+    "food_name": "cayenne pepper",
+        "nutritional_value": {
+            "calories": 17,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 3.49
+    },
+    {
+    "food_name": "heavy cream",
+        "nutritional_value": {
+            "calories": 51,
+            "vegetarian": true,
+            "vegan": false
+            },
+        "avr_price": 2.99
+    },
+    {
+    "food_name": "basmati rice",
+        "nutritional_value": {
+            "calories": 150,
+            "vegetarian": true,
+            "vegan": true
+            },
+        "avr_price": 4.99
+    }
     ]
 }
 ```

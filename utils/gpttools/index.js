@@ -4,6 +4,7 @@ const prefix = fs.readFileSync(__dirname + '/prefix.txt').toString(); // gpt pre
 const { Configuration, OpenAIApi } = require('openai');
 
 // openai setup for and helper functions for ChatGPT
+console.log(process.env.OPEN_AI_API_KEY);
 const config = new Configuration({ apiKey: process.env.OPEN_AI_API_KEY })
 const OpenAPI = new OpenAIApi(config);
 

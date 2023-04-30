@@ -7,7 +7,19 @@ router.get('/random', async (req, res, next) => {
 
         res.json(recipe);
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        console.log(error);
+        res.status(401).json(error)
+    }
+});
+
+router.get('/random/:region', async (req, res, next) => {
+    try {
+        const recipe = await ChatGPT.generateRegionalRecipe(req.params.region);
+
+        res.json(recipe);
+    } catch (error) {
+        console.log(error);
+        res.status(401).json(error)
     }
 });
 
