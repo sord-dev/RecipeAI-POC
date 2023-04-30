@@ -4,11 +4,23 @@ Click here for [Full README](./Full-README.md)
 
 Most interaction with the OpenAI API takes place in the [/utils/gpttools](./utils/gpttools) directory
 
+- [RecipeAI Server POC](#recipeai-server-poc)
+  - [How it works](#how-it-works)
+  - [Limitations](#limitations)
+    - [Large datasets will struggle](#large-datasets-will-struggle)
+    - [Large latency time](#large-latency-time)
+  - [Things of note](#things-of-note)
+  - [Tech used currently](#tech-used-currently)
+  - [Recipe Endpoints](#recipe-endpoints)
+    - [Get Random Recipe](#get-random-recipe)
+    - [Get Random Regonal Recipe](#get-random-regonal-recipe)
+  - [Cloning this repo](#cloning-this-repo)
+
 ## How it works
 
 Us and ChatGPT agree on a mutual way of thinking about foods and recipes in json, once established we can request for chatGPT to give us currated recipes based on our customised prompts.
 
-In [prefix.txt](./utils/gpttools/prefix.txt) you'll see the prompt in which we do this. This file is loaded into a custom method used in [models/ChatGPT](./models/ChatGPT.js). 
+In [prefix.txt](./utils/gpttools/prefix.txt) you'll see the prompt in which we do this. This file is loaded into a custom method used in [models/ChatGPT](./models/ChatGPT.js).
 
 ***utils/gpttools/index.js:***
 
@@ -38,10 +50,20 @@ OpenAPI.command = async (content) => { // custom helper command to easily comman
 
 ## Limitations
 
+### Large datasets will struggle
+
 Can only really generate a few recipes or foods at a time, meaning that generating large datasets will struggle.
 
 - Possible fix would be to store a pregenorated amount of recipes and only generate the users recommended recipes at a time.
 - User recommended recipes may need to be generated one by one on demand as well due to the same issue.
+
+### Large latency time
+
+From request to recipe generation:
+
+![image](https://user-images.githubusercontent.com/75338985/235352560-f986acf0-baba-408d-90d9-20333b0438f5.png)
+
+- Again the answer lies with how we utilise generating these recipes, generating and storing them beforehand then serving them sounds like a much more time efficient process.
 
 ## Things of note
 

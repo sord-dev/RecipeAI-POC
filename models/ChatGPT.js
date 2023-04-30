@@ -37,7 +37,7 @@ const ChatGPT = { // will be renamed to GPT_Commands inside the ChatGPT model?
     },
 
     generateRegionalRecipe: async (regon) => {
-        const res = await OpenAPI.command(`DF:create a ${regon} themed recipe with values`);
+        const res = await OpenAPI.command(`DF:create a ${regon} recipe with values`);
 
         return parseGPT(res.choices[0].message.content);
     },

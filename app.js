@@ -1,7 +1,6 @@
 const express = require('express');
 const createError = require('http-errors');
 const morgan = require('morgan');
-require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -23,8 +22,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, async () => { // on server initialisation, initalise the gpt api with it's prompt
-  console.log(`🚀 @ http://localhost:${PORT}`)
-});
-
+module.exports = app;

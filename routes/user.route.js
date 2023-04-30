@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User.js');
 
-router.get('/:userId/pantry', async (req, res, next) => {
+router.get('/:userId/pantry', async (req, res, next) => { // partially implimented 
     let { params } = req;
 
     try {
@@ -14,7 +14,7 @@ router.get('/:userId/pantry', async (req, res, next) => {
 
 });
 
-router.patch('/:userId/pantry', async (req, res, next) => {
+router.patch('/:userId/pantry', async (req, res, next) => { // partially implimented 
     let { body, params } = req;
 
     try {
