@@ -23,8 +23,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, async () => { // on server initialisation, initalise the gpt api with it's prompt
-  console.log(`🚀 @ http://localhost:${PORT}`)
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, async () => console.log(`🚀 @ http://localhost:${PORT}`));
 
