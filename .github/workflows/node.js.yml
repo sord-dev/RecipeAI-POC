@@ -28,8 +28,7 @@ jobs:
         cache: 'npm'
     - name: Set environment variables
       run: |
-        echo "export MY_VAR=123" >> $GITHUB_ENV
-        echo "export ANOTHER_VAR=456" >> $GITHUB_ENV
-    - run: npm ci
+        echo "export PORT=123" >> $GITHUB_ENV
+        echo "export OPEN_AI_API_KEY=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" >> $GITHUB_ENV
     - run: npm run build --if-present
     - run: npm test
