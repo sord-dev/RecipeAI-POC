@@ -4,11 +4,21 @@ Click here for [Full README](./Full-README.md)
 
 Most interaction with the OpenAI API takes place in the [/utils/gpttools](./utils/gpttools) directory
 
+- [RecipeAI Server POC](#recipeai-server-poc)
+  - [How it works](#how-it-works)
+  - [Limitations](#limitations)
+  - [Things of note](#things-of-note)
+  - [Tech used currently](#tech-used-currently)
+  - [Recipe Endpoints](#recipe-endpoints)
+    - [Get Random Recipe](#get-random-recipe)
+    - [Get Random Regonal Recipe](#get-random-regonal-recipe)
+  - [Cloning this repo](#cloning-this-repo)
+
 ## How it works
 
 Us and ChatGPT agree on a mutual way of thinking about foods and recipes in json, once established we can request for chatGPT to give us currated recipes based on our customised prompts.
 
-In [prefix.txt](./utils/gpttools/prefix.txt) you'll see the prompt in which we do this. This file is loaded into a custom method used in [models/ChatGPT](./models/ChatGPT.js). 
+In [prefix.txt](./utils/gpttools/prefix.txt) you'll see the prompt in which we do this. This file is loaded into a custom method used in [models/ChatGPT](./models/ChatGPT.js).
 
 ***utils/gpttools/index.js:***
 
