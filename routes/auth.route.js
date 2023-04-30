@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User.js');
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => { // not implimented 
     let { body } = req;
 
     try {
@@ -14,18 +14,16 @@ router.post('/login', async (req, res, next) => {
 
 });
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', async (req, res, next) => { // not implimented 
     let { body } = req;
-
     try {
-
         res.json(body);
     } catch (error) {
         res.status(404).json({ error: error.message })
     }
 });
 
-router.get('/logout', async (req, res, next) => {
+router.get('/logout', async (req, res, next) => { // not implimented 
     try {
         res.json({message:'Succesfully logged out.'});
     } catch (error) {
