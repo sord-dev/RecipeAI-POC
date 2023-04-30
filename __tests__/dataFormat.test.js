@@ -1,4 +1,5 @@
-const { parseGPT } = require('../utils/')
+const { GPTTools } = require('../utils')
+const { parseGPT } = GPTTools;
 
 describe('Parsing Data Format with parseGPT function', () => {
     const GPTfoods = `DF:[{"food_name": "apple", "nutritional_value": {"calories": 95, "vegetarian": True, "vegan": True}, "avr_price": 0.5}, {"food_name": "chicken breast", "nutritional_value": {"calories": 165, "vegetarian": False, "vegan": False}, "avr_price": 2.5}, {"food_name": "spinach", "nutritional_value": {"calories": 23, "vegetarian": True, "vegan": True}, "avr_price": 1.0}, {"food_name": "quinoa", "nutritional_value": {"calories": 120, "vegetarian": True, "vegan": True}, "avr_price": 3.0}, {"food_name": "salmon", "nutritional_value": {"calories": 206, "vegetarian": False, "vegan": False}, "avr_price": 5.0}]`

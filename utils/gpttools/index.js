@@ -8,7 +8,7 @@ const config = new Configuration({ apiKey: process.env.OPEN_AI_API_KEY })
 const OpenAPI = new OpenAIApi(config);
 
 OpenAPI.command = async (content) => { // custom helper command to easily command gpt with our dataformat and json structure
-    let cmd = { role: "user", content: prefix + ' ' + content };
+    let cmd = { role: "user", content:  prefix + ' ' + content };
     const res = await OpenAPI.createChatCompletion({ model: 'gpt-3.5-turbo', messages: [cmd] });
 
     return res.data;
