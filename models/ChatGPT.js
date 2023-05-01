@@ -2,7 +2,8 @@ const { GPTTools } = require('../utils')
 const { OpenAPI, parseGPT } = GPTTools;
 
 // DF: in some command prompts referes to a custom command (Data Format)
-// we've built into the init function for the ChatGPT API it allows us to have no prompts and get raw data off GPT.
+// We've built into the init function for the ChatGPT API it allows us to have no prompts and get raw data off GPT.
+
 const ChatGPT = { // will be renamed to GPT_Commands inside the ChatGPT model? 
     // recommendations
     generateRecipeU: async (user) => {
@@ -12,11 +13,11 @@ const ChatGPT = { // will be renamed to GPT_Commands inside the ChatGPT model?
     },
 
     // poc recipes
-    generateRecipe: async () => {
-        const res = await OpenAPI.command(`DF:create a recipe with values`);
+    generateRecipe: async (preferences) => {
+        console.log(preferences ? `${preferences} DF:create a recipe with values` : `DF:create a recipe with values`)
+        const res = await OpenAPI.command(preferences ? `${preferences} DF:create a recipe with values` : `DF:create a recipe with values`);
 
         return parseGPT(res.choices[0].message.content);
-
     },
 
     generateRegionalRecipe: async (region) => {
@@ -24,11 +25,6 @@ const ChatGPT = { // will be renamed to GPT_Commands inside the ChatGPT model?
 
         return parseGPT(res.choices[0].message.content);
     },
-
-
-    // recommendations
-    generateRecommendedFood: () => `DF:to be determined`,
-    generateRecommendedRecipe: qty => `DF:to be determined`,
 }
 
 module.exports = ChatGPT;

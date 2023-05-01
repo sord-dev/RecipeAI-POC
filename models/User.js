@@ -1,4 +1,4 @@
-const users = [{ id: 1, username: 'stef', password: 'test', pantry: ["rice", "bell peppers", "onions", "peas", "lettuce"], dislikes: ["liver"] }]
+const users = [{ id: 1, username: 'stef', password: 'test', pantry: ["rice", "bell peppers", "onions", "peas", "lettuce", "bacon", "bread"], dislikes: ["liver"] }]
 
 class User {
     constructor({ id, username, password, pantry = [], dislikes = [] }) {
