@@ -14,8 +14,9 @@ const ChatGPT = { // will be renamed to GPT_Commands inside the ChatGPT model?
 
     // poc recipes
     generateRecipe: async (preferences) => {
-        console.log(preferences ? `${preferences} DF:create a recipe with values` : `DF:create a recipe with values`)
-        const res = await OpenAPI.command(preferences ? `${preferences} DF:create a recipe with values` : `DF:create a recipe with values`);
+        const res = await OpenAPI.command(preferences ? `${preferences} DF:create a new recipe object from these ingredients with values` : `DF:create a new recipe object with values`);
+
+        if(!res?.choices) throw new Error('Error generating recipe')
 
         return parseGPT(res.choices[0].message.content);
     },

@@ -9,6 +9,7 @@ const OpenAPI = new OpenAIApi(config);
 
 OpenAPI.command = async (content) => { // custom helper command to easily command gpt with our dataformat and json structure
     let cmd = { role: "user", content:  prefix + ' ' + content };
+    console.log(cmd.content);
     const res = await OpenAPI.createChatCompletion({ model: 'gpt-3.5-turbo', messages: [cmd], temperature: 0.8 }); // temperature determines the variation in gpt's predictions
 
     return res.data;

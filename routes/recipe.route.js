@@ -2,8 +2,7 @@ const router = require('express').Router();
 const ChatGPT = require('../models/ChatGPT');
 const User = require('../models/User');
 
-
-router.post('/recommended', async (req, res, next) => { 
+router.post('/recommended', async (req, res, next) => {
     let { body } = req;
 
     try {
@@ -17,17 +16,23 @@ router.post('/recommended', async (req, res, next) => {
     }
 });
 
-router.post('/f/recommended', async (req, res, next) => { 
+router.post('/f/recommended', async (req, res, next) => {
     let { body } = req;
 
     try {
-        let pantryString = body.pantry.map(l => l.toString()).join(' ') // convert the pantry array into a string
-        let dislikedString = body.dislikes.map(d => d.toString()).join(' ') // convert the disliked array into a string
-        let preferences = `Excluding ${dislikedString} as i dont like them, I have ${pantryString}`
+        if (body.pantry.length) {
+            let pantryString = body.pantry.map(l => l.toString()).join(' ') // convert the pantry array into a string
+            let dislikedString = body.dislikes.map(d => d.toString()).join(' ') // convert the disliked array into a string
+            let preferences = `Excluding ${dislikedString} as i dont like them, I have ${pantryString}`
 
-        const recommended = await ChatGPT.generateRecipe(preferences);
+            const recommended = await ChatGPT.generateRecipe(preferences);
+            res.json({ pantry: body.pantry, recommended });
+        } else {
+            const recommended = await ChatGPT.generateRecipe();
 
-        res.json({ pantry: body.pantry, recommended });
+            res.json({ pantry: body.pantry, recommended });
+        }
+
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
